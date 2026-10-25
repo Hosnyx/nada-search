@@ -1,9 +1,6 @@
-# Nada ❤️ — Bilingual Romantic Search (updated)
+# Nada ❤️ — Love Messages & Wisdom
 
-- The main logo changes between `Nada` and `ندى` with the language button.
-- Arabic mode switches the page to RTL.
-- Three suggestion buttons search for beautiful places in Egypt, romantic Arabic/Egyptian songs, and Arabic love quotes, using a query appropriate to the selected language.
-- Search opens real Google results and heart animations remain enabled.
+The “Surprise Me” button opens a bilingual wisdom card with random short quotes. Users can request another thought or copy it. “A Little Love” still opens the love-message card. The UI switches between English and Arabic, including RTL mode.
 
 ## GitHub Pages
-Replace the existing repository's `index.html` with this version and wait for Pages to redeploy.
+Replace `index.html` in your existing repository with this file and wait for GitHub Pages to redeploy.
