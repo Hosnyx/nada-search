@@ -1,87 +1,102 @@
 <!doctype html>
-<html lang="ar" dir="rtl">
+<html lang="en">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#ffffff">
-  <meta name="description" content="ندى — واجهة بحث بسيطة للعثور على ما تبحث عنه على الإنترنت.">
-  <title>ندى — بحث الإنترنت</title>
+  <meta name="theme-color" content="#fff5f7">
+  <meta name="description" content="Nada ❤️ — a little love, a lot to discover.">
+  <title>Nada ❤️ — Search with Love</title>
   <style>
-    :root { color-scheme: light; --text:#202124; --muted:#5f6368; --line:#dfe1e5; --hover:#f8f9fa; --blue:#4285f4; }
-    * { box-sizing:border-box; }
-    html,body { margin:0; min-height:100%; font-family:Arial,"Noto Sans Arabic",Tahoma,sans-serif; color:var(--text); }
-    body { min-height:100vh; display:flex; flex-direction:column; }
-    a { color:inherit; text-decoration:none; }
-    a:hover { text-decoration:underline; }
-    .topbar { display:flex; align-items:center; justify-content:space-between; padding:18px 28px; font-size:14px; gap:20px; }
-    .top-left,.top-right { display:flex; align-items:center; gap:22px; }
-    .avatar { width:36px; height:36px; display:grid; place-items:center; border-radius:50%; color:white; background:#4285f4; font-size:17px; }
-    .apps { width:24px; height:24px; display:grid; grid-template-columns:repeat(3,5px); grid-template-rows:repeat(3,5px); gap:3px; place-content:center; }
-    .apps i { background:#5f6368; border-radius:50%; }
-    main { flex:1; display:flex; flex-direction:column; align-items:center; padding: min(11vh,100px) 20px 70px; }
-    .logo { font-size:clamp(66px,10vw,100px); line-height:1.25; font-weight:700; letter-spacing:-5px; margin:0 0 27px; user-select:none; }
-    .logo span:nth-child(1) { color:#4285f4; }.logo span:nth-child(2) { color:#ea4335; }.logo span:nth-child(3) { color:#fbbc05; }
-    .search-form { width:min(584px,94vw); }
-    .searchbox { width:100%; height:48px; border:1px solid var(--line); border-radius:28px; display:flex; align-items:center; gap:12px; padding:0 16px; }
-    .searchbox:hover,.searchbox:focus-within { box-shadow:0 1px 6px #20212433; border-color:transparent; }
-    .search-icon { flex:none; width:20px; height:20px; color:#5f6368; }
-    input { flex:1; min-width:0; border:0; outline:0; font:16px Arial,Tahoma,sans-serif; background:transparent; color:var(--text); }
-    .buttons { display:flex; justify-content:center; gap:12px; margin-top:28px; }
-    button { border:1px solid transparent; border-radius:4px; background:#f8f9fa; color:#3c4043; font:14px Arial,Tahoma,sans-serif; padding:10px 18px; cursor:pointer; min-height:38px; }
-    button:hover { border-color:#dadce0; box-shadow:0 1px 1px #00000012; }
-    .language { font-size:13px; margin-top:28px; color:#3c4043; }
-    .language a { color:#1a73e8; margin-right:8px; }
-    footer { background:#f2f2f2; color:#70757a; font-size:14px; }
-    .country { padding:15px 30px; border-bottom:1px solid #dadce0; }
-    .footer-links { display:flex; justify-content:space-between; flex-wrap:wrap; gap:14px 30px; padding:15px 30px; }
-    .footer-group { display:flex; flex-wrap:wrap; gap:22px; }
-    @media(max-width:600px) { .topbar{padding:16px;}.top-left,.top-right{gap:13px}.topbar{font-size:13px} main{padding-top:11vh}.logo{margin-bottom:30px}.footer-links{justify-content:center;padding:16px}.footer-group{justify-content:center;gap:16px}.country{text-align:center} }
+    :root{--ink:#4b2634;--muted:#8d6976;--pink:#e85d83;--rose:#ff8ca8;--line:#f0cbd6}
+    *{box-sizing:border-box}html{min-height:100%}
+    body{margin:0;min-height:100vh;display:flex;flex-direction:column;color:var(--ink);font-family:Inter,"Segoe UI",Arial,sans-serif;background:radial-gradient(ellipse at 12% 15%,rgba(255,190,207,.38),transparent 34%),radial-gradient(ellipse at 88% 78%,rgba(255,210,220,.48),transparent 34%),linear-gradient(135deg,#fffafd,#fff3f6 48%,#fff9fb);overflow-x:hidden}
+    a{color:inherit;text-decoration:none}a:hover{color:var(--pink)}
+    .topbar{display:flex;justify-content:space-between;align-items:center;gap:20px;padding:22px clamp(18px,4vw,54px);font-size:13px}
+    .nav{display:flex;align-items:center;gap:clamp(12px,2vw,25px)}.top-link{opacity:.83}.tiny-heart{color:var(--pink);font-size:16px}
+    .avatar{display:grid;place-items:center;width:36px;height:36px;border-radius:50%;background:linear-gradient(145deg,#ff9bb5,#d94e78);color:white;box-shadow:0 5px 14px #e85d8333}
+    main{flex:1;width:100%;display:flex;flex-direction:column;align-items:center;padding:clamp(42px,10vh,105px) 18px 75px;position:relative}
+    .glow{position:absolute;top:70px;width:250px;height:180px;background:#ffc5d6;filter:blur(70px);opacity:.38;pointer-events:none}
+    .brand-wrap{text-align:center;position:relative}.eyebrow{color:#b37c8e;font-size:11px;text-transform:uppercase;letter-spacing:.28em;margin-bottom:13px}
+    .logo{font-size:clamp(64px,10vw,100px);line-height:1.1;letter-spacing:-.065em;font-weight:750;margin:0;text-shadow:0 8px 26px #e85d8314}
+    .logo .n{color:#db4f7a}.logo .a{color:#ee7897}.logo .d{color:#c94c76}.logo .a2{color:#f29ab0}
+    .logo .heart{display:inline-block;font-size:.43em;letter-spacing:0;vertical-align:middle;margin-left:8px;filter:drop-shadow(0 5px 8px #e85d8340);animation:heartbeat 2s ease-in-out infinite}
+    .tagline{margin:16px 0 31px;color:#9b6b7b;font-size:clamp(14px,2vw,16px);letter-spacing:.02em}
+    .search-form{width:min(620px,94vw);position:relative;z-index:1}
+    .searchbox{display:flex;align-items:center;gap:13px;min-height:58px;padding:0 20px;border:1px solid #f0d3dc;border-radius:999px;background:rgba(255,255,255,.78);box-shadow:0 12px 35px rgba(160,69,98,.08),inset 0 1px #fff;backdrop-filter:blur(12px);transition:.2s ease}
+    .searchbox:focus-within,.searchbox:hover{border-color:#eaa2b7;box-shadow:0 15px 40px rgba(195,73,113,.15);transform:translateY(-1px)}
+    .search-icon{width:21px;height:21px;flex:none;color:#bc8295}input{min-width:0;flex:1;border:0;outline:0;background:transparent;color:var(--ink);font-size:16px}
+    input::placeholder{color:#bd9aa6}.clear{border:0;background:transparent;color:#b78a99;cursor:pointer;font-size:19px;padding:3px 5px;display:none}
+    .buttons{display:flex;justify-content:center;flex-wrap:wrap;gap:12px;margin-top:24px}
+    button{font-family:inherit;cursor:pointer;border-radius:999px;padding:12px 21px;transition:transform .18s,box-shadow .18s,background .18s}
+    .primary{font-size:13px;font-weight:600;color:#fff;border:1px solid #e85d83;background:linear-gradient(135deg,#f27e9d,#d94d79);box-shadow:0 8px 18px #e85d8330}
+    .primary:hover{transform:translateY(-2px);box-shadow:0 12px 23px #e85d8340}
+    .secondary{font-size:13px;color:#a44b69;border:1px solid #f0d0da;background:#ffffffa8}.secondary:hover{background:#fff;transform:translateY(-2px)}
+    .love-note{display:flex;align-items:center;justify-content:center;gap:8px;margin-top:34px;color:#a77b8a;font-size:12px}.love-note span{color:var(--pink)}
+    .chips{display:flex;justify-content:center;flex-wrap:wrap;gap:8px;margin-top:18px}.chip{border:1px solid #f2d8e0;border-radius:999px;padding:8px 12px;background:#ffffff80;color:#a66d80;font-size:12px}.chip:hover{background:#fff;border-color:#e9a6ba;color:#c94c76}
+    footer{padding:18px clamp(18px,4vw,54px);border-top:1px solid #f2dce3;background:#fff8fa9c;color:#a17f8b;font-size:12px}
+    .footer-top{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;padding-bottom:14px;border-bottom:1px solid #f2dce3}
+    .footer-bottom{display:flex;justify-content:space-between;gap:14px 28px;flex-wrap:wrap;padding-top:14px}.footer-links{display:flex;flex-wrap:wrap;gap:18px}.footer-links a:hover{text-decoration:underline}
+    .floating-heart{position:fixed;z-index:0;pointer-events:none;opacity:0;color:#f29ab0;animation:floatUp 10s linear infinite}
+    .h1{left:8%;bottom:-30px;font-size:18px}.h2{left:23%;bottom:-30px;font-size:12px;animation-delay:3s}.h3{right:15%;bottom:-30px;font-size:22px;animation-delay:5s}.h4{right:30%;bottom:-30px;font-size:13px;animation-delay:7s}
+    .burst-layer{position:fixed;inset:0;overflow:hidden;pointer-events:none;z-index:20}
+    .burst-heart{position:absolute;left:var(--x);top:var(--y);font-size:var(--size);opacity:0;will-change:transform,opacity;animation:heartBurst var(--duration) cubic-bezier(.16,.72,.24,1) forwards;filter:drop-shadow(0 4px 7px rgba(221,67,117,.22))}
+    .searchbox.is-searching{animation:searchPulse .55s ease}
+    @keyframes heartbeat{0%,100%{transform:scale(1)}8%{transform:scale(1.12)}16%{transform:scale(1)}24%{transform:scale(1.08)}32%{transform:scale(1)}}
+    @keyframes floatUp{0%{transform:translateY(0) rotate(0);opacity:0}12%{opacity:.38}85%{opacity:.22}100%{transform:translateY(-110vh) rotate(28deg);opacity:0}}
+    @keyframes heartBurst{0%{transform:translate(0,0) scale(.2) rotate(0deg);opacity:0}12%{opacity:1}70%{opacity:.95}100%{transform:translate(var(--dx),var(--dy)) scale(1.15) rotate(var(--rot));opacity:0}}
+    @keyframes searchPulse{0%,100%{box-shadow:0 12px 35px rgba(160,69,98,.08)}40%{box-shadow:0 0 0 7px rgba(232,93,131,.13),0 15px 40px rgba(195,73,113,.2)}}
+    @media(max-width:600px){.topbar{padding:16px}.topbar .nav{gap:12px}.top-link{font-size:12px}main{padding-top:8vh}.eyebrow{letter-spacing:.2em}.searchbox{min-height:54px;padding:0 16px}.footer-bottom{justify-content:center}.footer-links{justify-content:center;gap:14px}.footer-top{justify-content:center}}
+    @media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}}
   </style>
 </head>
 <body>
+  <div class="burst-layer" id="burstLayer" aria-hidden="true"></div>
+  <span class="floating-heart h1" aria-hidden="true">♥</span><span class="floating-heart h2" aria-hidden="true">♡</span><span class="floating-heart h3" aria-hidden="true">♥</span><span class="floating-heart h4" aria-hidden="true">♡</span>
   <header class="topbar">
-    <nav class="top-left" aria-label="روابط سريعة">
-      <a href="https://www.google.com/imghp?hl=ar" target="_blank" rel="noopener">صور</a>
-      <a href="https://mail.google.com/" target="_blank" rel="noopener">Gmail</a>
-      <a class="apps" href="https://www.google.com/intl/ar/about/products" aria-label="تطبيقات" target="_blank" rel="noopener"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></a>
-      <a class="avatar" href="https://accounts.google.com/" aria-label="الحساب" target="_blank" rel="noopener">ن</a>
-    </nav>
-    <nav class="top-right" aria-label="روابط ندى">
-      <a href="#about">حول ندى</a><a href="#store">متجر ندى</a>
-    </nav>
+    <nav class="nav" aria-label="Quick links"><a class="top-link" href="https://www.google.com/imghp?hl=en" target="_blank" rel="noopener">Images</a><a class="top-link" href="https://mail.google.com/" target="_blank" rel="noopener">Gmail</a><span class="tiny-heart">♥</span></nav>
+    <nav class="nav" aria-label="Nada links"><a class="top-link" href="#about">A Little Love</a><a class="avatar" href="#home" aria-label="Nada home">N</a></nav>
   </header>
-  <main>
-    <h1 class="logo" aria-label="ندى"><span>ن</span><span>د</span><span>ى</span></h1>
+  <main id="home">
+    <div class="glow" aria-hidden="true"></div>
+    <div class="brand-wrap"><div class="eyebrow">A little love, a lot to discover</div>
+      <h1 class="logo" aria-label="Nada love"><span class="n">N</span><span class="a">a</span><span class="d">d</span><span class="a2">a</span><span class="heart">❤️</span></h1>
+      <p class="tagline">Find what you love. Follow what makes you smile.</p>
+    </div>
     <form class="search-form" id="searchForm" action="https://www.google.com/search" method="get">
-      <div class="searchbox">
-        <svg class="search-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.8" cy="10.8" r="6.8" fill="none" stroke="currentColor" stroke-width="2.2"/><path d="m16 16 5 5" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg>
-        <input id="q" type="search" name="q" autocomplete="off" aria-label="ابحث في الإنترنت" autofocus>
+      <div class="searchbox" id="searchBox">
+        <svg class="search-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.8" cy="10.8" r="6.8" fill="none" stroke="currentColor" stroke-width="2"/><path d="m16 16 5 5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+        <input id="q" type="search" name="q" placeholder="Search the web with love..." autocomplete="off" aria-label="Search the web">
+        <button class="clear" id="clear" type="button" aria-label="Clear search">×</button>
       </div>
-      <div class="buttons">
-        <button type="submit">بحث ندى</button>
-        <button type="button" id="lucky">ضربة حظ</button>
-      </div>
+      <div class="buttons"><button class="primary" type="submit">Search with Nada ♥</button><button class="secondary" type="button" id="lucky">Surprise Me ✨</button></div>
     </form>
-    <div class="language">يقدّم ندى البحث على الإنترنت بسهولة <a href="https://www.google.com/?hl=en">English</a></div>
+    <div class="chips" aria-label="Popular searches"><button class="chip" type="button" data-query="love quotes">♡ Love quotes</button><button class="chip" type="button" data-query="romantic songs">♫ Romantic songs</button><button class="chip" type="button" data-query="beautiful places">✧ Beautiful places</button></div>
+    <div class="love-note"><span>♥</span> Made with a little extra love <span>♥</span></div>
   </main>
   <footer>
-    <div class="country">مصر</div>
-    <div class="footer-links">
-      <div class="footer-group"><a href="#about">حول ندى</a><a href="#business">الأعمال</a><a href="#ads">الإعلانات</a></div>
-      <div class="footer-group"><a href="#privacy">الخصوصية</a><a href="#terms">البنود</a><a href="#settings">الإعدادات</a></div>
-    </div>
+    <div class="footer-top"><span>Made for curious hearts everywhere</span><span>🌷 A softer way to search</span></div>
+    <div class="footer-bottom"><div class="footer-links"><a href="#about">About Nada</a><a href="https://www.google.com/intl/en/about/" target="_blank" rel="noopener">About Google</a><a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Privacy</a></div><div class="footer-links"><a href="https://policies.google.com/terms" target="_blank" rel="noopener">Terms</a><a href="#settings">Settings</a><a href="#home">Back to top ↑</a></div></div>
   </footer>
   <script>
-    const form = document.getElementById('searchForm');
-    const input = document.getElementById('q');
-    document.getElementById('lucky').addEventListener('click', () => {
-      const query = input.value.trim();
-      if (!query) { input.focus(); return; }
-      window.location.href = 'https://www.google.com/search?btnI=1&q=' + encodeURIComponent(query);
-    });
-    form.addEventListener('submit', (event) => {
-      if (!input.value.trim()) { event.preventDefault(); input.focus(); }
-    });
+    const form=document.getElementById('searchForm'),input=document.getElementById('q'),clear=document.getElementById('clear'),lucky=document.getElementById('lucky'),box=document.getElementById('searchBox'),layer=document.getElementById('burstLayer');
+    function burstHearts(){
+      const r=box.getBoundingClientRect(),x=r.left+r.width/2,y=r.top+r.height/2;
+      const hearts=['💕','💗','💖','💘','💞','❤️','♡'];
+      for(let i=0;i<28;i++){
+        const el=document.createElement('span');el.className='burst-heart';el.textContent=hearts[Math.floor(Math.random()*hearts.length)];
+        const angle=(Math.PI*2*i/28)+(Math.random()-.5)*.35, distance=95+Math.random()*230;
+        el.style.setProperty('--x',`${x}px`);el.style.setProperty('--y',`${y}px`);
+        el.style.setProperty('--dx',`${Math.cos(angle)*distance}px`);el.style.setProperty('--dy',`${Math.sin(angle)*distance-35}px`);
+        el.style.setProperty('--size',`${15+Math.random()*22}px`);el.style.setProperty('--duration',`${850+Math.random()*650}ms`);el.style.setProperty('--rot',`${Math.random()*100-50}deg`);
+        layer.appendChild(el);el.addEventListener('animationend',()=>el.remove(),{once:true});
+      }
+      box.classList.remove('is-searching');void box.offsetWidth;box.classList.add('is-searching');
+    }
+    function updateClear(){clear.style.display=input.value?'block':'none'}
+    input.addEventListener('input',updateClear);clear.addEventListener('click',()=>{input.value='';updateClear();input.focus()});
+    document.querySelectorAll('[data-query]').forEach(b=>b.addEventListener('click',()=>{input.value=b.dataset.query;updateClear();burstHearts();setTimeout(()=>form.requestSubmit(),250)}));
+    form.addEventListener('submit',e=>{if(!input.value.trim()){e.preventDefault();input.focus();return}burstHearts();e.preventDefault();const url='https://www.google.com/search?q='+encodeURIComponent(input.value.trim());setTimeout(()=>window.location.href=url,320)});
+    lucky.addEventListener('click',()=>{if(!input.value.trim()){input.focus();return}burstHearts();const url='https://www.google.com/search?btnI=1&q='+encodeURIComponent(input.value.trim());setTimeout(()=>window.location.href=url,320)});
   </script>
 </body>
 </html>
