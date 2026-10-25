@@ -1,12 +1,8 @@
-# Nada ❤️ — Romantic Search
+# Nada ❤️ — Bilingual Romantic Search
 
-An English-language romantic search homepage with a heart burst animation when the user clicks Search. Searches open real Google results.
+Preserves the romantic Nada design with English/Arabic toggle, RTL support, animated hearts on search, and real Google search results. Footer links now lead to working destinations.
 
-## Publish with GitHub Pages
-1. Create a GitHub repository (for example, `nada-search`).
-2. Upload `index.html` to the repository root.
-3. Open **Settings → Pages**.
-4. Choose **Deploy from a branch**, select `main` and `/(root)`, then save.
-5. Wait for GitHub Pages to publish the site.
-
-Static site; no backend or API key required.
+## GitHub Pages
+1. Upload `index.html` to the root of your existing `nada-search` repository, replacing the old file.
+2. Go to **Settings → Pages** and ensure `main` / `/(root)` is selected.
+3. Wait for GitHub Pages to redeploy.
