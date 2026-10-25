@@ -1,8 +1,9 @@
-# Nada ❤️ — Bilingual Romantic Search
+# Nada ❤️ — Bilingual Romantic Search (updated)
 
-Preserves the romantic Nada design with English/Arabic toggle, RTL support, animated hearts on search, and real Google search results. Footer links now lead to working destinations.
+- The main logo changes between `Nada` and `ندى` with the language button.
+- Arabic mode switches the page to RTL.
+- Three suggestion buttons search for beautiful places in Egypt, romantic Arabic/Egyptian songs, and Arabic love quotes, using a query appropriate to the selected language.
+- Search opens real Google results and heart animations remain enabled.
 
 ## GitHub Pages
-1. Upload `index.html` to the root of your existing `nada-search` repository, replacing the old file.
-2. Go to **Settings → Pages** and ensure `main` / `/(root)` is selected.
-3. Wait for GitHub Pages to redeploy.
+Replace the existing repository's `index.html` with this version and wait for Pages to redeploy.
